@@ -1,10 +1,11 @@
 import 'package:design_patters_flutter/models/todo_model.dart';
 import 'package:design_patters_flutter/repository_pattern/todo_data_source.dart';
+import 'package:dio/dio.dart';
 
 class TodoRepository {
   //Repository
   //Basicamente é um service com mais de uma fonte de dados (data source).
-  final TodoDataSource _todoDataSource = TodoDataSource();
+  final TodoDataSource _todoDataSource = TodoDataSource(dio: Dio());
 
   Future<List<TodoModel>> getAll() async {
     final json =

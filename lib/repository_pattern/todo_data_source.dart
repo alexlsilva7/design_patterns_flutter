@@ -1,8 +1,10 @@
 import 'package:dio/dio.dart';
 
 class TodoDataSource {
-  final dio = Dio();
+  final Dio dio;
   final url = 'https://jsonplaceholder.typicode.com/todos';
+
+  TodoDataSource({required this.dio});
 
   Future<List<Map>> fetchTodos() async {
     final response = await dio.get(url);
