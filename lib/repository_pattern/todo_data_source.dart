@@ -8,6 +8,6 @@ class TodoDataSource {
 
   Future<List<Map>> fetchTodos() async {
     final response = await dio.get(url);
-    return response.data;
+    return (response.data as List).map((e) => e as Map).toList();
   }
 }
