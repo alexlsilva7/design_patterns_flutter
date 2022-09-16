@@ -8,4 +8,12 @@ class Contact {
     required this.email,
     required this.favorite,
   });
+
+  factory Contact.fromJson(Map<String, dynamic> json) {
+    return Contact(
+      fullName: json['full_name'],
+      email: json['email'],
+      favorite: json['favorite'],
+    );
+  }
 }
